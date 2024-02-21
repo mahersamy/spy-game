@@ -10,24 +10,6 @@ Widget categoryItem(CategoryModel categoryModel,BuildContext context){
   return GestureDetector(
     onTap: (){
       BlocProvider.of<SpyGameCubit>(context).updateSpyWordsSelect(categoryModel.listOfWords);
-      // if(categoryModel.name=="حيوانات"){
-      //   print(animals);
-      //   BlocProvider.of<SpyGameCubit>(context).updateSpyWordsSelect(animals);
-      // }else if(categoryModel.name=="خضروات"){
-      //   BlocProvider.of<SpyGameCubit>(context).updateSpyWordsSelect(vegetables);
-      // }else if(categoryModel.name=="الطعام"){
-      //   BlocProvider.of<SpyGameCubit>(context).updateSpyWordsSelect(foods);
-      // }else if(categoryModel.name=="الاعمال"){
-      //   BlocProvider.of<SpyGameCubit>(context).updateSpyWordsSelect(jobs);
-      // }else if(categoryModel.name=="بلاد و مدن"){
-      //   BlocProvider.of<SpyGameCubit>(context).updateSpyWordsSelect(countries);
-      // }else if(categoryModel.name=="مشروبات"){
-      //   BlocProvider.of<SpyGameCubit>(context).updateSpyWordsSelect(juices);
-      // }else if(categoryModel.name=="افلام و مسلسلات"){
-      //   BlocProvider.of<SpyGameCubit>(context).updateSpyWordsSelect(moviesAndSeries);
-      // }else if(categoryModel.name=="كوره القدم"){
-      //   BlocProvider.of<SpyGameCubit>(context).updateSpyWordsSelect(footballPlayers);
-      // }
       Navigator.pushReplacementNamed(context,addPlayerScreen,arguments: categoryModel);
     },
     child: Container(
@@ -43,7 +25,7 @@ Widget categoryItem(CategoryModel categoryModel,BuildContext context){
             child: Text(categoryModel.name,style: const TextStyle(color: Colors.white),),
           ),
           SizedBox(
-            height: 100,
+            height: MediaQuery.of(context).size.width>350?75:100,
             width: 150,
             child:
               Image.asset(categoryModel.image),

@@ -13,8 +13,8 @@ class CategoryScreen extends StatelessWidget {
         color: colorBlack,
         width: double.infinity,
         child: GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, // number of items in each row
+            gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: MediaQuery.of(context).size.width>350?3:2, // number of items in each row
               mainAxisSpacing: 8.0, // spacing between rows
               crossAxisSpacing: 8.0, // spacing between columns
             ),

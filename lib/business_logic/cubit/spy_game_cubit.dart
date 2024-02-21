@@ -5,16 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:spy_game/data/models/category_model.dart';
 
-import '../../constans/strings.dart'
-    show
-        animals,
-        foods,
-        jobs,
-        vegetables,
-        countries,
-        moviesAndSeries,
-        juices,
-        footballPlayers;
 
 part 'spy_game_state.dart';
 
@@ -76,31 +66,6 @@ class SpyGameCubit extends Cubit<SpyGameState> {
     Random random = Random();
     int randomNumber = random.nextInt((category.listOfWords.length - 1));
     word = category.listOfWords[randomNumber];
-    // if (categoryName.name== "حيوانات") {
-    //   int randomNumber = random.nextInt((animals.length - 1));
-    //   word = animals[randomNumber];
-    // } else if (categoryName.name == "خضروات") {
-    //   int randomNumber = random.nextInt((vegetables.length - 1));
-    //   word = vegetables[randomNumber];
-    // } else if (categoryName.name== "الطعام") {
-    //   int randomNumber = random.nextInt((foods.length - 1));
-    //   word = foods[randomNumber];
-    // } else if (categoryName.name== "الاعمال") {
-    //   int randomNumber = random.nextInt((jobs.length - 1));
-    //   word = jobs[randomNumber];
-    // } else if (categoryName.name== "بلاد و مدن") {
-    //   int randomNumber = random.nextInt((countries.length - 1));
-    //   word = countries[randomNumber];
-    // } else if (categoryName.name== "مشروبات") {
-    //   int randomNumber = random.nextInt((juices.length - 1));
-    //   word = juices[randomNumber];
-    // } else if (categoryName.name== "افلام و مسلسلات") {
-    //   int randomNumber = random.nextInt((moviesAndSeries.length - 1));
-    //   word = moviesAndSeries[randomNumber];
-    // } else if (categoryName.name== "كوره القدم") {
-    //   int randomNumber = random.nextInt((footballPlayers.length - 1));
-    //   word = footballPlayers[randomNumber];
-    // }
     emit(GetWord());
     return word;
   }
@@ -126,16 +91,6 @@ class SpyGameCubit extends Cubit<SpyGameState> {
       Random random = Random();
       int randomNumberForAsks = random.nextInt(asks.length);
       int randomNumberForAnswer = random.nextInt(awnsers.length);
-      print("___________________________________________");
-
-      print(asks);
-      print(awnsers);
-
-      // else if(asks[randomNumberForAsks]==awnsers[randomNumberForAnswer]&&asks.length==1&&awnsers.length==1){
-      // int rand=random.nextInt(2);
-      // rand==1?randomNumberForAnswer++:randomNumberForAnswer--;
-      // asksAndAwnsers.add([asks[randomNumberForAsks],awnsers[randomNumberForAnswer]]);
-      // }
       if (asks.length == 1 &&
           awnsers.length == 1 &&
           asks[randomNumberForAsks] == awnsers[randomNumberForAnswer]) {
@@ -172,9 +127,6 @@ class SpyGameCubit extends Cubit<SpyGameState> {
         asksAndAwnsers
             .add([asks[randomNumberForAsks], awnsers[randomNumberForAnswer]]);
       }
-      print(randomNumberForAsks);
-      print(randomNumberForAnswer);
-      print("___________________________________________");
       asks.removeAt(randomNumberForAsks);
       awnsers.removeAt(randomNumberForAnswer);
       emit(Play());
@@ -207,8 +159,6 @@ class SpyGameCubit extends Cubit<SpyGameState> {
         updateListWord.removeAt(randomNum2);
       }
     }
-
-    print(spyWordsRes);
     emit(Select());
   }
 
@@ -260,23 +210,6 @@ class SpyGameCubit extends Cubit<SpyGameState> {
     awnsers = List.from(players);
     getWord();
     updateSpyWordsSelect(category.listOfWords);
-    // if (categoryName == "حيوانات") {
-    //   updateSpyWordsSelect(animals);
-    // } else if (categoryName == "خضروات") {
-    //   updateSpyWordsSelect(vegetables);
-    // } else if (categoryName == "الطعام") {
-    //   updateSpyWordsSelect(foods);
-    // } else if (categoryName == "الاعمال") {
-    //   updateSpyWordsSelect(jobs);
-    // } else if (categoryName == "بلاد و مدن") {
-    //   updateSpyWordsSelect(countries);
-    // } else if (categoryName == "مشروبات") {
-    //   updateSpyWordsSelect(juices);
-    // } else if (categoryName == "افلام و مسلسلات") {
-    //   updateSpyWordsSelect(moviesAndSeries);
-    // } else if (categoryName == "كوره القدم") {
-    //   updateSpyWordsSelect(footballPlayers);
-    // }
     select();
     getSpy();
     createScoreBoard();

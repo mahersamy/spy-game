@@ -32,7 +32,6 @@ class AddPlayerScreen extends StatelessWidget {
     BlocProvider.of<SpyGameCubit>(context).category=categoryName;
     String word=BlocProvider.of<SpyGameCubit>(context).getWord();
     BlocProvider.of<SpyGameCubit>(context).select();
-    print(word);
     return Scaffold(
       body: Container(
         color: colorBlack,
